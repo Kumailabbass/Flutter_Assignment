@@ -51,6 +51,21 @@ class _QuotesScreenState extends State<QuotesScreen> {
           ),
         ),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          FloatingActionButton(
+              child: Icon(Icons.menu),
+              onPressed: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => MenuScreen()))),
+          FloatingActionButton(child: Icon(Icons.add), onPressed: addQuote),
+          FloatingActionButton(
+              child: Icon(Icons.settings),
+              onPressed: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => SettingsScreen()))),
+        ],
+      ),
     );
   }
 
@@ -94,5 +109,33 @@ class _QuotesScreenState extends State<QuotesScreen> {
     } else {
       return '';
     }
+  }
+}
+
+class MenuScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Menu'),
+      ),
+      body: Center(
+        child: Text('This is the menu screen'),
+      ),
+    );
+  }
+}
+
+class SettingsScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Settings'),
+      ),
+      body: Center(
+        child: Text('This is the settings screen'),
+      ),
+    );
   }
 }
